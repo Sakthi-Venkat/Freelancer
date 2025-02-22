@@ -5,6 +5,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 const user = require("./Routes/AuthRoutes");
+const jobcrud = require("./Routes/JobCreationRoutes");
 
 
 
@@ -13,12 +14,13 @@ app.use(express.json());
 app.use(cookieParser());
 
 
+
 app.use(cors({
     origin : "http://localhost:5173",
     credentials : true
 }));
 
-app.use("/api", user );
+app.use("/api", user , jobcrud );
 
 mongoose.connect("mongodb+srv://npandian515:95144@cluster0.abnb9.mongodb.net/")
 .then(() =>{

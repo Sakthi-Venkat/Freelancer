@@ -57,7 +57,7 @@ exports.register = async (req,res) =>{
 exports.login = async (req,res) =>{
     const {email , password}  = req.body;
      try {
-         const existingUser = await userModel.findOne({email});
+         const existingUser = await userModel.findOne({email}).select('+password');
 
          if(!existingUser){
              return res.status(400).json({
@@ -84,7 +84,7 @@ exports.login = async (req,res) =>{
           );
 
            res.cookie(
-            'Authorization' , `Bearer ${token}`, 
+            'Authorization', `Bearer ${token}`, 
             {
                 httpOnly : true,
                 expires : new Date(Date.now() + 24*60*60*1000),
@@ -96,7 +96,7 @@ exports.login = async (req,res) =>{
             success : true,
             message : "User logged in successfully",
             user : existingUser,
-            token
+            token : token
            })
         
      } catch (error) {
