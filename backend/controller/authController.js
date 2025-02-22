@@ -22,7 +22,7 @@ exports.register = async (req,res) =>{
             })
         }
     
-        const hashedPassword = doHash(password, 15);
+        const hashedPassword = await doHash(password, 15);
     
         const newUser = new userModel({
             name,

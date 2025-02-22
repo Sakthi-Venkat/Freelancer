@@ -18,9 +18,9 @@ app.use(cors({
     credentials : true
 }));
 
-app.use("/auth", user );
+app.use("/api", user );
 
-mongoose.connect("mongodb+srv://naveen:95144@cluster0.ij3t1.mongodb.net/")
+mongoose.connect("mongodb+srv://npandian515:95144@cluster0.abnb9.mongodb.net/")
 .then(() =>{
     console.log("Connected to MongoDB");
 } )
