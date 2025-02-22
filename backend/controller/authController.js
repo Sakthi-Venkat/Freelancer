@@ -1,4 +1,5 @@
 const userModel = require("../models/userModel");
+const jwt = require("jsonwebtoken");
 const { doHash, doHAshValidation } = require("../utils/hashing");
 
 
@@ -95,6 +96,7 @@ exports.login = async (req,res) =>{
             success : true,
             message : "User logged in successfully",
             user : existingUser,
+            token
            })
         
      } catch (error) {
