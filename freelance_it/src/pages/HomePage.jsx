@@ -4,8 +4,8 @@ const HomePage = () => {
 
   return (
     <div>HomePage
-
-        <a href="/login" >Login</a>
+        <div>  <a href="/login" >Login</a></div>
+      
         <a href="/register" >Register</a>
     </div>
   )
