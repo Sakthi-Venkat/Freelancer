@@ -43,16 +43,16 @@ const Register = () => {
     }
 
   return (
-    <div className="form">
-    <h1>Register</h1>
-    {error && <p className="p">{error}</p>}
-    {success && <p className="p">{success}</p>}
+    <div className="register-container">
+    <div className="form-container">
+      <h1 className="heading">Register</h1>
+      {error && <p className="error-message">{error}</p>}
+      {success && <p className="success-message">{success}</p>}
 
-    <form onSubmit={handleSubmit}>
-      <div className="inputForm">
+      <form className="form" onSubmit={handleSubmit}>
         <input
-          className="input"
           type="text"
+          className="input"
           placeholder="Name"
           value={formdata.name}
           onChange={(e) =>
@@ -60,12 +60,9 @@ const Register = () => {
           }
           required
         />
-      </div>
-
-      <div className="inputForm">
         <input
-          className="input"
           type="email"
+          className="input"
           placeholder="Email"
           value={formdata.email}
           onChange={(e) =>
@@ -73,12 +70,9 @@ const Register = () => {
           }
           required
         />
-      </div>
-
-      <div className="inputForm">
         <input
-          className="input"
           type="password"
+          className="input"
           placeholder="Password"
           value={formdata.password}
           onChange={(e) =>
@@ -86,9 +80,6 @@ const Register = () => {
           }
           required
         />
-      </div>
-
-      <div className="inputForm">
         <select
           className="input"
           value={formdata.role}
@@ -100,16 +91,21 @@ const Register = () => {
           <option value="freelancer">Freelancer</option>
           <option value="client">Client</option>
         </select>
-      </div>
 
-      <button type="submit" className="button-submit">
-        Register
-      </button>
-    </form>
+        <button type="submit" className="login-button">
+          Register
+        </button>
+      </form>
 
-    <p className="p">
-      Already have an account? <a href="/login">Login</a>
-    </p>
+      <p className="agreement">
+        Already have an account? <a href="/login">Login</a>
+      </p>
+    </div>
+
+    {/* 🔹 Image on the Right Side */}
+    <div className="image-container">
+      <img src="/imagef1.png" alt="Registration Illustration" />
+    </div>
   </div>
 );
 };

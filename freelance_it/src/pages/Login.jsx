@@ -37,27 +37,40 @@ const Login = () => {
 
     }
   return (
-    <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
+    <div className="register-container">
+    <div className="form-container">
+      <h1 className="heading">Login</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          className="input"
+          placeholder="Email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          required
+        />
 
-                <input 
-                    type="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                />
+        <input
+          type="password"
+          className="input"
+          placeholder="Password"
+          value={formData.password}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+          required
+        />
 
-                <button type="submit" >Login</button>
-            </form>
-
+        <button type="submit" className="login-button">Login</button>
+      </form>
+      <p className="agreement">
+        Create a new account? <a href="/register">Sign In</a>
+      </p>
     </div>
-  )
-}
+
+    <div className="image-container">
+      <img src="/imagef2.png" alt="Login Illustration" />
+    </div>
+  </div>
+);
+};
 
 export default Login
