@@ -15,7 +15,7 @@ exports.identifer = (req ,res, next) => {
         const decoded = jwt.verify(token , process.env.JWT_SECRET);
          console.log( "Decoded JWT :" , decoded );
 
-         if(role.length && !roles.includes(decoded.role)){
+         if(role.length && !role.includes(decoded.role)){
             return res.status(401).json({
                 message : "You are not authorized"
             })

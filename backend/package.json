@@ -10,6 +10,8 @@
     "start": "node --env-file=.env index.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "crypto": "^1.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.1"
   }
