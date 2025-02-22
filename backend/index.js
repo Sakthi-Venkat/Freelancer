@@ -20,7 +20,7 @@ app.use(cors({
 
 app.use("/auth", user );
 
-mongoose.connect("")
+mongoose.connect("mongodb+srv://naveen:95144@cluster0.ij3t1.mongodb.net/")
 .then(() =>{
     console.log("Connected to MongoDB");
 } )
