@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const jobCreationSchema = new mongoose.Schema({
      client :{
         type:  mongoose.Schema.Types.ObjectId, 
-        ref: "User" ,
+        ref: "UserModel" ,
         required: true
      },
 
