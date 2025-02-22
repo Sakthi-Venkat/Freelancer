@@ -105,3 +105,11 @@ exports.login = async (req,res) =>{
          })
      }
 }
+
+exports.signOut = (req, res)  =>{
+    res.clearCookie('Authorization');
+    res.status(200).json({
+        success : true,
+        message : "User logged out successfully"
+    })
+}
