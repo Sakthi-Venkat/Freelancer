@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const user = require("./Routes/AuthRoutes");
 const jobcrud = require("./Routes/JobRoutes");
 const jobproposal = require("./Routes/ProposalRoutes");
-
+const profile = require("./Routes/ProfileRoutes")
 
 
 const app = express();
@@ -21,7 +21,7 @@ app.use(cors({
     credentials : true
 }));
 
-app.use("/api", user , jobcrud , jobproposal );
+app.use("/api", user , jobcrud , jobproposal , profile );
 
 mongoose.connect("mongodb+srv://npandian515:95144@cluster0.abnb9.mongodb.net/")
 .then(() =>{
