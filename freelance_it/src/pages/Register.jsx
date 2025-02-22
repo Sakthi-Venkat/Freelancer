@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-
+import './Register.css'
 const Register = () => {
     const [formdata ,setFormData] = useState({
         name: '',
@@ -43,50 +43,75 @@ const Register = () => {
     }
 
   return (
-    <div>
-        <h1>Register</h1>
-              {error && <p>{error}</p>}
-              {success && <p>{success}</p>}
+    <div className="form">
+    <h1>Register</h1>
+    {error && <p className="p">{error}</p>}
+    {success && <p className="p">{success}</p>}
 
-        <form onSubmit={handleSubmit} >
-            <input
-                type="text"
-                placeholder='Name'
-                value = {formdata.name}
-                onChange={(e) => setFormData({...formdata , name : e.target.value}) }
-                required
-            />
-            <input
-                type="email"
-                placeholder='Email'
-                value = {formdata.email}
-                onChange={(e) => setFormData({...formdata , email : e.target.value}) }
-                required
-            />
-            <input
-                type="password"
-                placeholder='Password'
-                value = {formdata.password}
-                onChange={(e) => setFormData({...formdata , password : e.target.value}) }
-                required
-            />
+    <form onSubmit={handleSubmit}>
+      <div className="inputForm">
+        <input
+          className="input"
+          type="text"
+          placeholder="Name"
+          value={formdata.name}
+          onChange={(e) =>
+            setFormData({ ...formdata, name: e.target.value })
+          }
+          required
+        />
+      </div>
 
-            <select 
-               value={formdata.role}
-                onChange={(e) => setFormData({...formdata , role : e.target.value}) }
-                required
-               >
-                
-                <option value="freelancer">freelancer</option>
-                <option value="client">client</option>
-            </select>
-            <button type='submit'  >Register</button>
+      <div className="inputForm">
+        <input
+          className="input"
+          type="email"
+          placeholder="Email"
+          value={formdata.email}
+          onChange={(e) =>
+            setFormData({ ...formdata, email: e.target.value })
+          }
+          required
+        />
+      </div>
 
-        </form>
-        
-        <p> Already have an account? <a href="/login">Login</a></p>
-    </div>
-  )
-}
+      <div className="inputForm">
+        <input
+          className="input"
+          type="password"
+          placeholder="Password"
+          value={formdata.password}
+          onChange={(e) =>
+            setFormData({ ...formdata, password: e.target.value })
+          }
+          required
+        />
+      </div>
+
+      <div className="inputForm">
+        <select
+          className="input"
+          value={formdata.role}
+          onChange={(e) =>
+            setFormData({ ...formdata, role: e.target.value })
+          }
+          required
+        >
+          <option value="freelancer">Freelancer</option>
+          <option value="client">Client</option>
+        </select>
+      </div>
+
+      <button type="submit" className="button-submit">
+        Register
+      </button>
+    </form>
+
+    <p className="p">
+      Already have an account? <a href="/login">Login</a>
+    </p>
+  </div>
+);
+};
 
 export default Register
