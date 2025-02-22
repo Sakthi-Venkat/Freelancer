@@ -37,6 +37,7 @@ const Login = () => {
 
     }
   return (
+
     <div className="register-container">
     <div className="form-container">
       <h1 className="heading">Login</h1>
@@ -67,7 +68,7 @@ const Login = () => {
     </div>
 
     <div className="image-container">
-      <img src="/imagef2.png" alt="Login Illustration" />
+      <img src="/imagef8.png" alt="Login Illustration" />
     </div>
   </div>
 );

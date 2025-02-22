@@ -104,7 +104,7 @@ const Register = () => {
 
     {/* 🔹 Image on the Right Side */}
     <div className="image-container">
-      <img src="/imagef1.png" alt="Registration Illustration" />
+      <img src="/imagef7.png" alt="Registration Illustration" />
     </div>
   </div>
 );
