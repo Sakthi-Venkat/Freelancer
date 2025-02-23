@@ -9,7 +9,19 @@ const Profile = () => {
     useEffect(() =>{
         const fetchProfile = async() =>{
             try { 
-                const response = await axios.get('http://localhost:5000/api/profile');
+              const token = localStorage.getItem('token');
+
+               if(!token) {
+                setError('You are not logged in');
+               }
+
+                const response = await axios.get('http://localhost:5000/api/profile',{
+                  headers: {
+                    'Authorization': `Bearer ${token}`
+                    },
+                    withCredentials: true,
+                    
+                });
 
                 setProfile(response.data.profile)
                 
@@ -53,9 +65,25 @@ const Profile = () => {
                        
                        <p> <strong>Bio :</strong> {profile.profile.bio} </p>
          
-                       
+                       <p>
+                        <strong>Skills:</strong>{" "}
+                         {profile.profile.skills && profile.profile.skills.join(', ')}
+                                               </p>
+
+                             <p>
+                               <strong>Portfolio:</strong>{' '}
+                               {profile.profile.portfolioLinks && profile.profile.portfolioLinks.join(', ')}
+
+                              </p>                  
+
+                              <p>
+                                <strong>Github:</strong> {" "}
+                                {profile.profile.githubLinks && profile.profile.githubLinks.join(', ')}
+                              </p>
                     </>
                 )}
+
+                <a href='/editProfile'   > Edit Profile</a>
 
     </div>
   )

@@ -5,3 +5,4 @@ const {getProfile, updateProfile} = require("../controller/profileController")
 
 router.get("/profile", identifer(['client','freelancer']) , getProfile );
 
+ module.exports = router

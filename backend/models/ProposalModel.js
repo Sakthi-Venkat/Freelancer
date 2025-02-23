@@ -9,7 +9,7 @@ const proposalSchema = new mongoose.Schema({
     },
 
     freelancer : {
-        type : mongoose.Schema.Types.pbjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : "UserModel",
         required : true
     },
