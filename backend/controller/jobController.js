@@ -33,7 +33,34 @@ exports.createJob = async (req ,res) =>{
 
 exports.getJobs = async (Req,res) =>{
     try {
-        const jobs = await jobCreationModel.find().populate("client" , "name email");
+      const {filter , sort} = req.query;
+         
+       let query = {};
+       if(filter){
+        query.category = {
+            $regex : filter,
+            $options : "i"
+        }
+       }
+         let sortOptions = {};
+         
+         if(sort === "budget"){
+            sortOptions.budget = 1;
+         } else if (sort === "createdAt") {
+            sortOptions.createdAt = -1;
+
+         }
+
+
+        
+        
+
+        const jobs = await jobCreationModel
+             .find(query)
+             .sort(sortOptions)        
+        .find().populate("client" , "name email");
+
+        
         res.status(200).json({
             success : true,
             jobs
