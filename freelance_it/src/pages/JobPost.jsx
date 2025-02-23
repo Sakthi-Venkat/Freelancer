@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./JobPost.css";
+import "./JobPost.css"; // Ensure this file exists
 
 const JobPost = () => {
   const [jobTitle, setJobTitle] = useState("");
@@ -27,13 +27,11 @@ const JobPost = () => {
           title: jobTitle,
           description: jobDescription,
           budget: jobBudget,
-          category: category,
-          tags: tags,
+          category,
+          tags,
         },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         }
       );
@@ -54,25 +52,25 @@ const JobPost = () => {
   };
 
   return (
-    <div className="job-post-container">
-      <div className="form-container">
-        <h1 className="heading">Job Creation</h1>
+    <div className="jobpost-background">
+      <div className="jobpost-container">
+        <h1 className="jobpost-heading">Post a Job</h1>
 
-        {error && <p className="error">{error}</p>}
-        {success && <p className="success">{success}</p>}
+        {error && <p className="jobpost-error">{error}</p>}
+        {success && <p className="jobpost-success">{success}</p>}
 
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="jobpost-form" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Job Title"
-            className="input"
+            className="jobpost-input"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
 
           <input
             type="text"
-            className="input"
+            className="jobpost-input"
             value={jobDescription}
             placeholder="Job Description"
             onChange={(e) => setJobDescription(e.target.value)}
@@ -81,7 +79,7 @@ const JobPost = () => {
           <input
             type="number"
             placeholder="Job Budget"
-            className="input"
+            className="jobpost-input"
             value={jobBudget}
             onChange={(e) => setJobBudget(e.target.value)}
           />
@@ -89,7 +87,7 @@ const JobPost = () => {
           <input
             type="text"
             placeholder="Category"
-            className="input"
+            className="jobpost-input"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
@@ -97,12 +95,12 @@ const JobPost = () => {
           <input
             type="text"
             placeholder="Tags"
-            className="input"
+            className="jobpost-input"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
           />
 
-          <button type="submit" className="submit-button">
+          <button type="submit" className="jobpost-submit-button">
             Create Job
           </button>
         </form>
