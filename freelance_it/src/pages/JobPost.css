@@ -1,115 +1,76 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-<<<<<<< HEAD
-=======
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #3b3b3b; /* Dark background */
-}
->>>>>>> 515e1ed (jobpost)
 
-/* Background Styling */
-.jobpost-background {
-    position: relative;
+/* Centered Form Container */
+.job-post-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
 }
 
-<<<<<<< HEAD
 /* Form Styling */
 .form-containerrr {
     background: #3b3b3b; /* Dark Gray */
-=======
-/* Background Image - Top Right */
-.jobpost-background::before {
-    content: "";
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 180px;
-    height: 180px;
-    background: url('../src/assets/right.png') no-repeat center/contain;
-    opacity: 0.7;
-    z-index: -1;
-    animation: float 5s ease-in-out infinite;
-}
-
-/* Background Image - Bottom Left */
-.jobpost-background::after {
-    content: "";
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    width: 180px;
-    height: 180px;
-    background: url('../src/assets/left.png') no-repeat center/contain;
-    opacity: 0.7;
-    z-index: -1;
-    animation: float 6s ease-in-out infinite;
-}
-
-/* Floating Animation */
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-/* Job Form Container */
-.jobpost-container {
-    background: #4a4a4a;
->>>>>>> 515e1ed (jobpost)
     padding: 30px;
     border-radius: 15px;
     box-shadow: rgba(255, 115, 0, 0.5) 0px 10px 30px;
     width: 400px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Subtle Hover Effect on Form */
+.form-container:hover {
+    transform: scale(1.02);
 }
 
 /* Heading */
-.jobpost-heading {
+.heading {
     font-size: 30px;
     font-weight: 600;
-    color: #ff8400;
+    color: #ff8400; /* Orange */
     margin-bottom: 20px;
 }
 
-/* Input Styling */
-.jobpost-input {
+/* Input Fields */
+.input {
     width: 90%;
     padding: 12px;
     margin: 10px 0;
-    border: 2px solid transparent;
+    border: none;
     border-radius: 8px;
-    background: #555;
+    background: #4a4a4a;
     color: white;
     font-size: 16px;
+    font-weight: 400;
     transition: all 0.3s ease-in-out;
 }
 
-/* Animated Input Focus Effect */
-.jobpost-input:focus {
+/* Input Focus Animation */
+.input:focus {
     outline: none;
-    background: #666;
-    box-shadow: 0 0 10px #ff8400, 0 0 20px rgba(255, 132, 0, 0.7);
-    border: 2px solid #ff8400;
+    background: #5a5a5a;
+    box-shadow: 0 0 10px #ff8400;
     transform: scale(1.05);
-    animation: glow 0.5s ease-in-out infinite alternate;
 }
 
-/* Glow Effect Animation */
-@keyframes glow {
-    0% { box-shadow: 0 0 10px #ff8400; }
-    100% { box-shadow: 0 0 20px #ff5500; }
+/* Error and Success Messages */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-/* Button Styling */
-.jobpost-submit-button {
+.success-message {
+    color: #00ff6a;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Submit Button */
+.submit-button {
     width: 100%;
     padding: 12px;
     margin-top: 20px;
@@ -120,69 +81,29 @@ body {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
 }
 
-/* Button Hover Effect */
-.jobpost-submit-button:hover {
+/* Glowing Effect on Hover */
+.submit-button:hover {
     background: linear-gradient(45deg, #ff5500, #ff8400);
     box-shadow: 0 0 15px #ff5500, 0 0 40px #ff8400;
     transform: scale(1.05);
 }
 
-/* Button Click Effect */
-.jobpost-submit-button:active {
-    transform: scale(0.95);
+/* Shake Animation on Click */
+.submit-button:active {
+    animation: shake 0.2s ease-in-out;
     background: linear-gradient(45deg, #ff3d00, #ff8400);
 }
 
-/* Ripple Effect Inside Button */
-.jobpost-submit-button::after {
-    content: "";
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.2);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
-    transition: transform 0.4s ease-out;
-}
-
-.jobpost-submit-button:active::after {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-}
-
-/* Success & Error Messages */
-.jobpost-success {
-    color: #00ff88;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.jobpost-error {
-    color: #ff3d00;
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .jobpost-container {
-        width: 90%;
-    }
-    
-    .jobpost-input {
-        width: 100%;
-    }
-    
-    .jobpost-submit-button {
-        font-size: 16px;
-    }
+/* Keyframes for Shake Effect */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
 }
