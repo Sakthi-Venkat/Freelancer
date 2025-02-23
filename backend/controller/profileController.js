@@ -31,7 +31,7 @@ exports.updateProfile = async (req ,res) => {
         }
 
         const updateUser = await userModel.findOneAndUpdate(
-            req.params.id,
+           {email : req.user.email},
             updateData,
             {new:true , runValidators : true}
     ).select("-password");

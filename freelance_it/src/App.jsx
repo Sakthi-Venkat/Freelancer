@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import JobPost from './pages/JobPost'
 import HomePage from './pages/HomePage'
 import Profile from './pages/Profile'
+import EditProfile from './pages/EditProfile'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/login' element = {<Login/>}     />
         <Route  path ="/job-create"  element={<JobPost/>}      />
         <Route  path='/profile'  element = {<Profile/>}  />
+        <Route   path='/editProfile' element = {<EditProfile/>}          />
       </Routes>
     </Router>
       
