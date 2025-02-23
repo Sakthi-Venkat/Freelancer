@@ -40,7 +40,7 @@ const FetchJobList = () => {
              <ul>
                 {jobs.map( (job) => (
                     <li key={job._id} >
-                        <Link to = {`job/${job._id}`} >
+                        <Link to = {`/jobs/${job._id}`} >
                         {job.title} - ${job.budget} ({job.status})
                         </Link>
                     </li>

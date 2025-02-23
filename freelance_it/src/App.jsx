@@ -6,7 +6,8 @@ import JobPost from './pages/JobPost'
 import HomePage from './pages/HomePage'
 import Profile from './pages/Profile'
 import EditProfile from './pages/EditProfile'
-import FetchJobList from './Components/FetchJobList'
+import FetchJobList from './pages/FetchJobList'
+import JobDetails from './pages/JobDetails'
 
 function App() {
 
@@ -22,7 +23,9 @@ function App() {
         <Route  path ="/job-create"  element={<JobPost/>}    />
         <Route  path='/profile'  element = {<Profile/>}  />
         <Route   path='/editProfile' element = {<EditProfile/>}  />
-        <Route   path='/jobsList' element={<FetchJobList/>}     />
+        <Route   path='/jobs' element={<FetchJobList/>}     />
+        <Route   path='/jobs/:id' element = {<JobDetails/>}    />
+
       </Routes>
     </Router>
       

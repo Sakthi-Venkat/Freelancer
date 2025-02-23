@@ -24,7 +24,7 @@ const jobCreationSchema = new mongoose.Schema({
 
      status :{
         type : String,
-        enums : ["open", "in progress" , "completed"],
+        enums : ["open", "in rogress" , "completed"],
         default : "open"
      },
 
