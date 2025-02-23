@@ -25,11 +25,11 @@
   }
   
   .form .input::-moz-placeholder {
-    color: rgb(170, 170, 170);
+    color: rgb(65, 48, 48);
   }
   
   .form .input::placeholder {
-    color: rgb(170, 170, 170);
+    color: rgb(34, 20, 20);
   }
   
   .form .input:focus {
@@ -83,14 +83,14 @@
   .agreement a {
     text-decoration: none;
     color: #ff9f04;
-    font-size: 10px;
+    font-size: 15px;
   }
   /* Main container to align form and image side by side */
 .register-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(18, 18, 18);
+  background-color: #1a1a1a;
   padding: 30px;
   border-radius: 20px;
   box-shadow: rgba(215, 174, 133, 0.8) 0px 30px 30px -20px;
@@ -113,4 +113,76 @@
 .image-container img {
   width: 100%;
   max-width: 300px; /* Adjust image size */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .form {
+    width: 90%;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image-container {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .image-container img {
+    max-width: 220px;
+  }
+
+  .form .input {
+    width: 70%; /* Reduced width */
+  }
+
+  .form .login-button {
+    width: 40%; /* Reduced width */
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
+
+  .register-container {
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 8px;
+  }
+
+  .image-container {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .image-container img {
+    max-width: 180px;
+  }
+
+  .form .input {
+    font-size: 13px;
+    padding: 8px;
+    width: 55%; /* Further reduced for small screens */
+  }
+
+  .form .login-button {
+    font-size: 13px;
+    padding: 8px;
+    width: 55%; /* Further reduced for small screens */
+  }
+
+  .agreement a {
+    font-size: 12px;
+  }
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import './Profile.css'
 const Profile = () => {
     const[profile ,setProfile] = useState(null);
     const[loading,setLoading] = useState(true);
@@ -46,46 +46,56 @@ const Profile = () => {
       }
 
       if(!profile) {
-        return <div>No profile found</div>;
+        return <div>No profile found!</div>;
       }
 
   return (
-    <div>
-              <h1>Profile</h1>
-              <p>
-                <strong>Name:</strong> {profile.name}
-                </p>
+    <div className="profile-page">
+    {/* Background Images */}
+    <img src="/imagef6.png" alt="Top Left" className="bg-image-top-left" />
+    <img src="/imagef7.png" alt="Bottom Right" className="bg-image-bottom-right" />
 
-                <p>
-                <strong>Email:</strong> {profile.email}
-                </p>
+    <div className="profile-containerrr">
+        <h1 className="profile-title">Profile</h1>
+        <img src={profile.image} alt="Profile" className="profile-image" />
 
-                {profile.profile && (
-                    <>
-                       
-                       <p> <strong>Bio :</strong> {profile.profile.bio} </p>
-         
-                       <p>
-                        <strong>Skills:</strong>{" "}
-                         {profile.profile.skills && profile.profile.skills.join(', ')}
-                                               </p>
+        <div className="profile-grid">
+            {/* First Row: Name & Email */}
+            <div className="grid-row">
+                <p className="grid-item"><strong>Name:</strong><br /><br/>{profile.name}</p>
+                <p className="grid-item"><strong>Email:</strong><br /><br/>{profile.email}</p>
+            </div>
 
-                             <p>
-                               <strong>Portfolio:</strong>{' '}
-                               {profile.profile.portfolioLinks && profile.profile.portfolioLinks.join(', ')}
+            {/* Second Row: Bio */}
+            {profile.profile?.bio && (
+                <div className="grid-row full-width">
+                    <p className="grid-item"><strong>Bio:</strong><br /><br/>{profile.profile.bio}</p>
+                </div>
+            )}
 
-                              </p>                  
+            {/* Third Row: Skills */}
+            {profile.profile?.skills && (
+                <div className="grid-row full-width">
+                    <p className="grid-item"><strong>Skills:</strong><br /><br/>{profile.profile.skills.join(", ")}</p>
+                </div>
+            )}
 
-                              <p>
-                                <strong>Github:</strong> {" "}
-                                {profile.profile.githubLinks && profile.profile.githubLinks.join(', ')}
-                              </p>
-                    </>
+            {/* Fourth Row: Github & Portfolio */}
+            <div className="grid-row">
+                {profile.profile?.githubLinks && (
+                    <p className="grid-item"><strong>Github:</strong><br /><br/>{profile.profile.githubLinks.join(", ")}</p>
                 )}
+                {profile.profile?.portfolioLinks && (
+                    <p className="grid-item"><strong>Portfolio:</strong><br /><br/>{profile.profile.portfolioLinks.join(", ")}</p>
+                )}
+            </div>
+        </div>
 
-                <a href='/editProfile'   > Edit Profile</a>
-
+        <a href="/editProfile" className="btn btn-full margin-right-sm">Edit Profile</a>
     </div>
+</div>
+
+
   )
 }
 

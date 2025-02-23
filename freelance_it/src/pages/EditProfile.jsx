@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import './EditProfile.css'
 const EditProfile = () => {
     const [formData , setFormData] = useState({
         _id : "",
@@ -155,66 +155,87 @@ const EditProfile = () => {
  { loading && <p>Loading...</p>}
 
   return (
-    <div>
+    <div className="profile-page">
+  {/* Background Images */}
+  <img src="/imagef6.png" alt="Top Left" className="bg-image-top-left" />
+  <img src="/imagef7.png" alt="Bottom Right" className="bg-image-bottom-right" />
 
-        <h2>Edit Profile</h2>
-         
-          <form onSubmit={handleSubmit}>
-            <label>Name:</label>
-              <input 
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              />
+  <div className="profile-container">
+    <h1>Edit Profile</h1>
 
-              <label>Email:</label>
-              <input 
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              />
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="input-box"
+        />
+      </div>
 
-              <label>Bio:</label>
-              <textarea
-              name="bio"
-              value={formData.profile.bio}
-              onChange={handleChange}
-              />
+      <div className="form-group">
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="input-box"
+        />
+      </div>
 
-              <label>Skills:</label>
-              <input 
-              type="text"
-              name="skills"
-              value={formData.profile.skills}
-              onChange={handleChange}
-              />
+      <div className="form-group">
+        <label>Bio:</label>
+        <textarea
+          name="bio"
+          value={formData.profile.bio}
+          onChange={handleChange}
+          className="input-box"
+        />
+      </div>
 
-              <label>Portfolio Links:</label>
-              <input 
-              type="text"
-              name="portfolioLinks"
-              value={formData.profile.portfolioLinks}
-              onChange={handleChange}
-              />
+      <div className="form-group">
+        <label>Skills:</label>
+        <input
+          type="text"
+          name="skills"
+          value={formData.profile.skills}
+          onChange={handleChange}
+          className="input-box"
+        />
+      </div>
 
-              <label>Github Links:</label>
-              <input 
-              type="text"
-              name="GithubLinks"
-              value={formData.profile.GithubLinks}
-              onChange={handleChange}
-              />
+      <div className="form-group">
+        <label>Portfolio Links:</label>
+        <input
+          type="text"
+          name="portfolioLinks"
+          value={formData.profile.portfolioLinks}
+          onChange={handleChange}
+          className="input-box"
+        />
+      </div>
 
-              <button 
-              type="submit"
-              
-              />
-          </form>
+      <div className="form-group">
+        <label>Github Links:</label>
+        <input
+          type="text"
+          name="GithubLinks"
+          value={formData.profile.GithubLinks}
+          onChange={handleChange}
+          className="input-box"
+        />
+      </div>
 
+      <button type="submit" className="btn">
+        Save Changes
+      </button>
+    </form>
+  </div>
+</div>
 
-    </div>
   )
 }
 
