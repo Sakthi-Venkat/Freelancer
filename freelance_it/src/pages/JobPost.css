@@ -1,14 +1,6 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Lightened Background */
-body {
-    background-color: #2d2d2d; /* Light Black */
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
 /* Centered Form Container */
 .job-post-container {
@@ -19,7 +11,7 @@ body {
 }
 
 /* Form Styling */
-.form-container {
+.form-containerrr {
     background: #3b3b3b; /* Dark Gray */
     padding: 30px;
     border-radius: 15px;

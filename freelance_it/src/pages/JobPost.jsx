@@ -55,7 +55,7 @@ const JobPost = () => {
 
   return (
     <div className="job-post-container">
-      <div className="form-container">
+      <div className="form-containerrr">
         <h1 className="heading">Job Creation</h1>
 
         {error && <p className="error">{error}</p>}
