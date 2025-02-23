@@ -60,7 +60,7 @@ exports.getJobs = async (Req,res) =>{
              .sort(sortOptions)        
         .find().populate("client" , "name email");
 
-        
+
         res.status(200).json({
             success : true,
             jobs
@@ -85,6 +85,11 @@ exports.getJobById = async(req,res) =>{
                 success : false
             })
         }
+
+        res.status(200).json({
+            success : true,
+            job
+        })
         
     } catch (error) {
         res.status(400).json({
