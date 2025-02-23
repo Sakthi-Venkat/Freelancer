@@ -31,7 +31,7 @@ exports.createJob = async (req ,res) =>{
 
 }
 
-exports.getJobs = async (Req,res) =>{
+exports.getJobs = async (req,res) =>{
     try {
       const {filter , sort} = req.query;
          
@@ -102,7 +102,7 @@ exports.getJobById = async(req,res) =>{
 exports.updateJob = async(req,res) =>{
     try {
         const updateJob = await jobCreationModel.findByIdAndUpdate(req.params.id,
-            {$set : req.body},
+            {status : req.body.status},
             {new : true}
          )
 

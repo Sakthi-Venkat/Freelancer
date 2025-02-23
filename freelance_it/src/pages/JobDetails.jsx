@@ -10,6 +10,7 @@ const JobDetails = () => {
 
 
      useEffect( () =>{
+               
         axios.get(`http://localhost:5000/api/jobs/${id}`)
         .then ( (res) => {setJobs(res.data.job)
             setStatus(res.data.job.status)
@@ -19,14 +20,41 @@ const JobDetails = () => {
 
 
      const handleDelete = () =>{
-        axios.delete(`http://localhost:5000/api/jobs/${id}`)
+            
+          const token = localStorage.getItem('token')
+
+        if(!token) {
+            return navigate('/login')
+        }
+
+
+        axios.delete(`http://localhost:5000/api/jobs/${id}`,
+            {
+                headers : {
+                  'Authorization' : `Bearer ${token}`
+                },
+                withCredentials : true
+              }
+        )
         .then(() =>navigate('/jobsList'))
         .catch((err) => console.log(err))
      };
 
       const handleUpdate = () =>{
+              
+        const token = localStorage.getItem('token')
+        if(!token) {
+            return navigate('/login')
+        }
+
           axios.put(`http://localhost:5000/api/jobs/${id}`, 
-            {status}
+            {status} ,
+            {
+              headers : {
+                'Authorization' : `Bearer ${token}`
+              },
+              withCredentials : true
+            }
           )
           .then( (res) => setJobs(res.data.job))
           .catch( (err) => console.log(err))
@@ -52,7 +80,7 @@ const JobDetails = () => {
               <select  value={status}
                onChange={(e) => setStatus(e.target.value)}
                >
-                <option value="open">Pending</option>
+                <option value="open">open</option>
                 <option value="in Progress">In Progress</option>
                 <option value="completed">Completed</option>
               </select>
